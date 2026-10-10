@@ -1,0 +1,117 @@
+/* ===== Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+/* ===== Base ===== */
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #0b0712;
+    background-image:
+            radial-gradient(circle at 20% 0%, rgba(168, 85, 247, 0.18), transparent 40%),
+            radial-gradient(circle at 90% 20%, rgba(255, 45, 120, 0.15), transparent 40%);
+    color: #e7e0f0;
+    margin: 0;
+    padding: 2.5rem 1.5rem;
+    min-height: 100vh;
+}
+
+/* ===== Conteneur / carte principale ===== */
+.container {
+    max-width: 820px;
+    margin: 0 auto;
+    background: rgba(24, 16, 36, 0.75);
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    border-radius: 16px;
+    padding: 2.5rem;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+/* ===== Titres ===== */
+h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin: 0 0 1rem;
+    background: linear-gradient(90deg, #ff2d78, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    color: #ff6ec7;
+    margin-bottom: .3rem;
+    font-size: 1.25rem;
+}
+
+/* petit prompt terminal façon "$ whoami" */
+h1::before {
+    content: "$ ";
+    font-family: 'JetBrains Mono', monospace;
+    color: #7c3aed;
+    -webkit-text-fill-color: #7c3aed;
+    font-size: 1.6rem;
+}
+
+p { line-height: 1.6; color: #c9bfdc; }
+strong { color: #ff6ec7; }
+
+/* ===== Boutons ===== */
+.btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff2d78, #a855f7);
+    color: #fff;
+    font-weight: 600;
+    padding: .7rem 1.4rem;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: transform .15s ease, box-shadow .15s ease;
+    box-shadow: 0 0 20px rgba(255, 45, 120, 0.35);
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(168, 85, 247, 0.55);
+}
+
+/* ===== Liste de concoctions ===== */
+.liste { list-style: none; padding: 0; margin-top: 1.5rem; }
+
+.carte {
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    border-left: 3px solid #ff2d78;
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1.1rem;
+    background: rgba(40, 24, 58, 0.55);
+    transition: transform .15s ease, border-color .15s ease;
+}
+.carte:hover {
+    transform: translateX(4px);
+    border-color: rgba(255, 110, 199, 0.6);
+}
+
+/* badge difficulté façon terminal */
+.difficulte {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .75rem;
+    color: #0b0712;
+    background: #ff6ec7;
+    padding: .15rem .6rem;
+    border-radius: 999px;
+    font-style: normal;
+    margin-bottom: .4rem;
+}
+
+/* liens simples */
+a:not(.btn) {
+    color: #a855f7;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .9rem;
+}
+a:not(.btn):hover { color: #ff6ec7; }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion — Maître apothicaire</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<form th:action="@{/logout}" method="post" style="display:inline;">
+    <button type="submit" class="btn">Déconnexion</button>
+</form>
+<div class="container">
+    <h1>Zone du Maître apothicaire</h1>
+    <p>Bienvenue, <strong th:text="${pseudo}">pseudo</strong>.</p>
+    <p>Ici, tu pourras bientôt créer et supprimer des concoctions.</p>
+    <a th:href="@{/concoctions}">Retour aux concoctions</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Concoctions</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Concoctions du carnet</h1>
+    <p>Apothicaire connecté : <strong th:text="${pseudo}">pseudo</strong></p>
+
+    <p sec:authorize="hasRole('MAITRE')">
+        <a class="btn" th:href="@{/gestion}">Zone de gestion (Maître)</a>
+    </p>
+
+    <ul class="liste">
+        <li class="carte" th:each="c : ${concoctions}">
+            <h2 th:text="${c.nom}">Nom</h2>
+            <span class="difficulte" th:text="${c.difficulte}">Difficulté</span>
+            <p th:text="${c.description}">Description</p>
+            <p><strong>Ingrédients :</strong>
+                <span th:text="${#strings.listJoin(c.ingredients, ', ')}">...</span>
+            </p>
+        </li>
+    </ul>
+
+    <a th:href="@{/}">Retour à l'accueil</a>
+    <form th:action="@{/logout}" method="post" style="display:inline;">
+        <button type="submit" class="btn">Déconnexion</button>
+    </form>
+</div>
+</body>
+</html>

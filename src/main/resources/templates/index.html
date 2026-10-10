@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Les Carnets de l'Apothicaire</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Les Carnets de l'Apothicaire</h1>
+    <p>Un recueil de concoctions et d'ingrédients. L'accès au carnet nécessite une connexion.</p>
+
+    <div sec:authorize="isAnonymous()">
+        <a class="btn" th:href="@{/concoctions}">Entrer dans le carnet (connexion GitHub)</a>
+    </div>
+
+    <div sec:authorize="isAuthenticated()">
+        <p>Connecté en tant que <strong sec:authentication="name">pseudo</strong>.</p>
+        <a class="btn" th:href="@{/concoctions}">Consulter les concoctions</a>
+        <form th:action="@{/logout}" method="post" style="display:inline;">
+            <button type="submit" class="btn">Déconnexion</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

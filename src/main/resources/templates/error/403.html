@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Accès refusé</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>403 — Accès réservé</h1>
+    <p>Cette zone est réservée au <strong>Maître apothicaire</strong>.
+        Ton compte est bien authentifié, mais ne dispose pas des droits nécessaires.</p>
+    <a th:href="@{/concoctions}">Retour aux concoctions</a>
+</div>
+</body>
+</html>
