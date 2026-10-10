@@ -99,8 +99,6 @@ Le flux OAuth2 détaillé (+ PKCE) est dans [`docs/architecture.md`](docs/archit
    ```
 5. 🌐 Ouvrir `http://localhost:8080`
 
-Variables attendues documentées dans [`.env.example`](.env.example).
-
 ## 🧪 Tests de sécurité (manuels)
 
 | # | Scénario | Attendu | Résultat |
