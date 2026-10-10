@@ -19,7 +19,7 @@ Le thème de l'apothicaire n'est qu'un support : le cœur du projet est la **sé
 
 ### ℹ️ Note sur PKCE
 
-PKCE a été **étudié** mais n'est **pas actif** ici : l'implémentation utilise **GitHub**, qui repose sur de l'OAuth2 "pur" avec un **client confidentiel** (protégé par un `client-secret`). PKCE vise les **clients publics** (apps mobiles, SPA) incapables de garder un secret. Détails dans [`docs/architecture.md`](docs/architecture.md).
+PKCE a été **étudié** mais n'est **pas actif** ici : l'implémentation utilise **GitHub**, qui repose sur de l'OAuth2 "pur" avec un **client confidentiel** (protégé par un `client-secret`). PKCE vise les **clients publics** (apps mobiles, SPA) incapables de garder un secret. Détails dans [`docs/architecture.md`](Architecture.md).
 
 ---
 
