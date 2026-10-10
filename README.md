@@ -75,9 +75,6 @@ Le flux OAuth2 détaillé (+ PKCE) est dans [`docs/architecture.md`](docs/archit
 | 🧵 Session | Déconnexion POST protégée par token CSRF |
 | 🎫 Jeton d'accès | Échange serveur-à-serveur (Authorization Code) |
 
-➡️ Modèle de menace complet : [`docs/threat-model.md`](docs/threat-model.md)
-➡️ Scénarios de test : [`docs/security-tests.md`](docs/security-tests.md)
-
 ---
 
 ## 🚀 Installation & configuration
