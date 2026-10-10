@@ -80,6 +80,7 @@ Le flux OAuth2 détaillé (+ PKCE) est dans [`docs/architecture.md`](docs/archit
 ## 🚀 Installation & configuration
 
 ### Prérequis
+
 - ☕ JDK 21
 - 🐙 Un compte GitHub
 
@@ -95,24 +96,33 @@ Le flux OAuth2 détaillé (+ PKCE) est dans [`docs/architecture.md`](docs/archit
 4. ▶️ Lancer :
    ```bash
    ./mvnw spring-boot:run
-5. 🌐 Ouvrir http://localhost:8080
-Variables attendues documentées dans .env.example (.env.example).
-🧪 Tests de sécurité (manuels)
-#	Scénario	Attendu
-1️⃣	/concoctions sans session	Redirection GitHub
-2️⃣	/concoctions connecté	Accès accordé
-3️⃣	/gestion en Apprenti	403 Forbidden
-4️⃣	Déconnexion puis accès protégé	Ré-authentification
-🧭 Limites & pistes d'amélioration
-- 💾 Pas de persistance : données et rôles en mémoire → évolution vers une BDD (H2/PostgreSQL)
-- 👤 Rôles en dur (liste de pseudos) → évolution vers une gestion en base
-- 🧩 PKCE non actif (client confidentiel + GitHub) → testable avec un provider OIDC (Google, Keycloak public)
-- 🤖 Tests manuels uniquement → à automatiser (JUnit + Spring Security Test)
-- 🔒 HTTP en local → prod nécessiterait HTTPS + cookie Secure
-- ➕ Création/suppression de concoctions non encore implémentée
-📚 Ce que ce projet m'a appris
-- Mettre en place une authentification déléguée sans gérer de mots de passe
-- Comprendre le flux OAuth2 et le rôle de chaque acteur
-- Distinguer authentification et autorisation en pratique
-- Appliquer une hygiène des secrets (externalisation, rotation)
-- Documenter une démarche de sécurité de façon crédible
+   ```
+5. 🌐 Ouvrir `http://localhost:8080`
+
+Variables attendues documentées dans [`.env.example`](.env.example).
+
+## 🧪 Tests de sécurité (manuels)
+
+| # | Scénario | Attendu | Résultat |
+|---|----------|---------|----------|
+| 1 | `/concoctions` sans session | Redirection GitHub | ✅ |
+| 2 | `/concoctions` connecté | Accès accordé | ✅ |
+| 3 | `/gestion` en Apprenti | 403 Forbidden | ✅ |
+| 4 | Déconnexion puis accès protégé | Ré-authentification | ✅ |
+
+## 🧭 Limites & pistes d'amélioration
+
+- 💾 **Pas de persistance** : données et rôles en mémoire → évolution vers une BDD (H2/PostgreSQL)
+- 👤 **Rôles en dur** (liste de pseudos) → évolution vers une gestion en base
+- 🧩 **PKCE non actif** (client confidentiel + GitHub) → testable avec un provider OIDC
+- 🤖 **Tests manuels uniquement** → à automatiser (JUnit + Spring Security Test)
+- 🔒 **HTTP en local** → prod nécessiterait HTTPS + cookie `Secure`
+- ➕ **Création/suppression de concoctions** non encore implémentée
+
+## 📚 Ce que ce projet m'a appris
+
+- Mettre en place une **authentification déléguée** sans gérer de mots de passe
+- Comprendre le **flux OAuth2** et le rôle de chaque acteur
+- Distinguer **authentification** et **autorisation** en pratique
+- Appliquer une **hygiène des secrets** (externalisation, rotation)
+- **Documenter** une démarche de sécurité de façon crédible
